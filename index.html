@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ford Ka SE 1.0 2016 Branco · R$ 30.000 à vista</title>
+  <meta name="description" content="Ford Ka SE 1.0 2016, branco, 180.000 km. Ar-condicionado, direção elétrica, travas e vidros elétricos dianteiros. R$ 30.000 à vista (Pix ou espécie).">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ford Ka SE 1.0 2016 · R$ 30.000 à vista">
+  <meta property="og:description" content="Branco, 180.000 km, completo. Fale direto com o dono pelo WhatsApp.">
+  <meta property="og:image" content="images/01-traseira.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #14171c;
+      --muted: #5f6672;
+      --line: #e4e7ec;
+      --accent: #0b5cff;
+      --wa: #25d366;
+      --wa-dark: #128c4b;
+      --warn-bg: #fff7e6;
+      --warn-line: #f5d38a;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      /* espaço para o botão fixo do WhatsApp */
+      padding-bottom: calc(96px + env(safe-area-inset-bottom));
+    }
+    img { display: block; max-width: 100%; }
+    main { max-width: 640px; margin: 0 auto; }
+
+    /* Galeria */
+    .gallery { position: relative; background: #e9ecf0; }
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .slides::-webkit-scrollbar { display: none; }
+    .slides figure {
+      flex: 0 0 100%;
+      margin: 0;
+      scroll-snap-align: center;
+      aspect-ratio: 4 / 3;
+    }
+    .slides img { width: 100%; height: 100%; object-fit: cover; }
+    .dots {
+      position: absolute; left: 0; right: 0; bottom: 4px;
+      display: flex; justify-content: center; gap: 0;
+    }
+    .dots button {
+      width: 28px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+      display: grid; place-items: center;
+    }
+    .dots button::before {
+      content: ""; width: 8px; height: 8px; border-radius: 99px;
+      background: rgba(255,255,255,.6); box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+      transition: width .2s, background .2s;
+    }
+    .dots button[aria-current="true"] { width: 36px; }
+    .dots button[aria-current="true"]::before { width: 22px; background: #fff; }
+    .photo-note {
+      margin: 0; padding: 8px 16px; font-size: .75rem; color: var(--muted);
+      background: var(--card); border-bottom: 1px solid var(--line);
+    }
+
+    /* Cabeçalho */
+    .head { padding: 20px 16px 8px; background: var(--card); }
+    .tag {
+      display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+    }
+    h1 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 4px; }
+    .sub { margin: 0; color: var(--muted); }
+    .price {
+      margin: 16px 0 4px; font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em;
+    }
+    .price small { font-size: .95rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+    .pay {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 16px; padding: 0; list-style: none;
+    }
+    .pay li {
+      font-size: .85rem; font-weight: 600; padding: 4px 10px; border-radius: 99px;
+      background: #eef3ff; color: #1b3f99;
+    }
+
+    /* Seções */
+    section { background: var(--card); margin-top: 10px; padding: 18px 16px; }
+    h2 { font-size: 1.05rem; margin: 0 0 12px; }
+
+    .specs {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0;
+    }
+    .specs div {
+      border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+    }
+    .specs dt { font-size: .75rem; color: var(--muted); }
+    .specs dd { margin: 0; font-weight: 700; }
+
+    .features { list-style: none; margin: 0; padding: 0; }
+    .features li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+    }
+    .features li:last-child { border-bottom: 0; }
+    .features svg { flex: 0 0 20px; margin-top: 2px; }
+
+    .notice {
+      display: flex; gap: 10px; padding: 12px 14px; border-radius: 12px;
+      background: var(--warn-bg); border: 1px solid var(--warn-line); font-size: .95rem;
+    }
+    .notice svg { flex: 0 0 20px; margin-top: 2px; }
+    .notice + .notice { margin-top: 10px; }
+
+    footer {
+      padding: 20px 16px; text-align: center; font-size: .75rem; color: var(--muted);
+    }
+    footer a { color: inherit; }
+
+    /* Botão WhatsApp fixo */
+    .cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: linear-gradient(to top, var(--bg) 70%, rgba(246,247,249,0));
+    }
+    .wa {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      max-width: 608px; margin: 0 auto; min-height: 56px; padding: 0 20px;
+      border-radius: 14px; background: var(--wa); color: #0b2e17;
+      font-size: 1.05rem; font-weight: 700; text-decoration: none;
+      box-shadow: 0 6px 20px rgba(18,140,75,.35);
+      transition: transform .1s, background .2s;
+    }
+    .wa:hover { background: #2fe174; }
+    .wa:active { transform: scale(.98); }
+    .wa:focus-visible { outline: 3px solid var(--wa-dark); outline-offset: 3px; }
+
+    @media (min-width: 640px) {
+      main { padding-top: 24px; }
+      .gallery, .head, section { border-radius: var(--radius); overflow: hidden; }
+      .head { border-radius: 0 0 var(--radius) var(--radius); }
+      .gallery { border-radius: var(--radius) var(--radius) 0 0; }
+      .specs { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Galeria: para trocar as fotos, substitua os arquivos na pasta /images
+         mantendo os mesmos nomes, ou edite/adicione <figure> abaixo. -->
+    <div class="gallery" aria-roledescription="carrossel" aria-label="Fotos do carro">
+      <div class="slides" id="slides" tabindex="0">
+        <figure><img src="images/01-traseira.jpg" alt="Ford Ka hatch branco visto de trás" width="1280" height="934" fetchpriority="high"></figure>
+        <figure><img src="images/02-frente.jpg" alt="Ford Ka hatch visto de frente" width="1280" height="824" loading="lazy"></figure>
+        <figure><img src="images/03-lateral.jpg" alt="Ford Ka hatch branco visto de lado" width="1280" height="960" loading="lazy"></figure>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+    <p class="photo-note">Fotos ilustrativas do modelo. Peça fotos e vídeos do carro pelo WhatsApp.</p>
+
+    <header class="head">
+      <span class="tag">À venda</span>
+      <h1>Ford Ka SE 1.0</h1>
+      <p class="sub">Hatch · Branco · 2016</p>
+
+      <p class="price">R$ 30.000 <small>à vista</small></p>
+      <ul class="pay" aria-label="Formas de pagamento">
+        <li>Pix</li>
+        <li>Dinheiro</li>
+      </ul>
+    </header>
+
+    <section aria-labelledby="h-ficha">
+      <h2 id="h-ficha">Ficha</h2>
+      <dl class="specs">
+        <div><dt>Ano</dt><dd>2016</dd></div>
+        <div><dt>Quilometragem</dt><dd>180.000 km</dd></div>
+        <div><dt>Motor</dt><dd>1.0</dd></div>
+        <div><dt>Versão</dt><dd>SE</dd></div>
+        <div><dt>Cor</dt><dd>Branco</dd></div>
+        <div><dt>Carroceria</dt><dd>Hatch</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="h-itens">
+      <h2 id="h-itens">Itens</h2>
+      <ul class="features">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#128c4b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ar-condicionado</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#128c4b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direção elétrica</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#128c4b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Travas elétricas</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#128c4b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Vidros elétricos (somente dianteiros)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-obs">
+      <h2 id="h-obs">Bom saber</h2>
+      <p class="notice"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b7791f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg><span>Algumas avarias na lataria.</span></p>
+      <p class="notice"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b7791f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg><span>Venda somente à vista, no Pix ou em dinheiro.</span></p>
+    </section>
+
+    <footer>
+      <p>Fotos: <a href="https://commons.wikimedia.org/wiki/File:FordKA-Tandil-oct2019.jpg" rel="noopener">Ezarate</a> (CC BY-SA 4.0),
+        <a href="https://commons.wikimedia.org/wiki/File:%2716_Ford_Figo_Hatchback.jpg" rel="noopener">Bull-Doser</a> (domínio público),
+        <a href="https://commons.wikimedia.org/wiki/File:Belo_Horizonte_(December_2024)_614.jpg" rel="noopener">Sturm</a> (CC BY-SA 4.0) via Wikimedia Commons.</p>
+    </footer>
+  </main>
+
+  <div class="cta">
+    <a class="wa" id="wa"
+       href="https://wa.me/5528999829561?text=Ol%C3%A1%2C%20Deyvid!%20Vi%20o%20seu%20Ford%20Ka%202016%20%C3%A0%20venda%20e%20tenho%20interesse.%20Ele%20ainda%20est%C3%A1%20dispon%C3%ADvel%3F"
+       target="_blank" rel="noopener">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      var slides = document.getElementById('slides');
+      var dotsEl = document.getElementById('dots');
+      var items = slides.querySelectorAll('figure');
+      if (items.length < 2) return;
+      var dots = [];
+      items.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Foto ' + (i + 1) + ' de ' + items.length);
+        b.addEventListener('click', function () {
+          slides.scrollTo({ left: i * slides.clientWidth, behavior: 'smooth' });
+        });
+        dotsEl.appendChild(b);
+        dots.push(b);
+      });
+      function update() {
+        var i = Math.round(slides.scrollLeft / slides.clientWidth);
+        dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+      }
+      slides.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+      slides.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') slides.scrollBy({ left: slides.clientWidth, behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') slides.scrollBy({ left: -slides.clientWidth, behavior: 'smooth' });
+      });
+      update();
+    })();
+  </script>
+</body>
+</html>
