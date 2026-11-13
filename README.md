@@ -10,12 +10,11 @@ Página estática de venda do Ford Ka SE 1.0 2016 — acessada pelo QR Code cola
 
 ## Trocar as fotos
 
-As fotos ficam em `images/`. Para usar as fotos reais do carro, substitua os arquivos
-mantendo os nomes (`01-traseira.jpg`, `02-frente.jpg`, `03-lateral.jpg`). Para adicionar
-ou remover fotos, edite os blocos `<figure>` em `index.html`. Prefira imagens com ~1280px
-de largura (paisagem, 4:3) para carregar rápido no celular.
-
-Ao trocar pelas fotos reais, remova também o aviso "Fotos ilustrativas" e os créditos do rodapé.
+As fotos reais do carro ficam em `images/` (`01-frente-diagonal.jpg`, `02-frente.jpg`,
+`03-traseira.jpg`, `04-interior.jpg`). Para trocar, adicionar ou remover fotos, edite os
+blocos `<figure>` em `index.html`. Use extensão `.jpg` em minúsculas (o GitHub Pages
+diferencia maiúsculas) e imagens com ~1280px de largura (paisagem, 4:3) para carregar
+rápido no celular.
 
 ## Editar informações
 
